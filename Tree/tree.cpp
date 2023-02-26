@@ -1,9 +1,13 @@
 #include "tree.h"
 #include <iostream>
+#include <queue>
+#include <iomanip>
+#include <cmath>
 
 tree::node::node(T data)
 	: data(data)
 {
+	depth = 0;
 	left = nullptr;
 	right = nullptr;
 }
@@ -21,6 +25,8 @@ void tree::node::setData(const T& data)
 tree::tree()
 {
 	root = nullptr;
+	number_of_nodes = 0;
+	depth = 0;
 }
 
 tree::~tree()
@@ -46,6 +52,8 @@ void tree::remove_all(node* node_)
 	remove_all(node_->left);
 	remove_all(node_->right);
 	delete node_;
+
+	number_of_nodes = 0;
 }
 
 bool tree::empty() const
@@ -58,9 +66,12 @@ void tree::insert(const T& data)
 	if (empty())
 	{
 		root = new node(data);
+		number_of_nodes++;
 		return;
 	}
 	node* help = root;
+
+	int help_depth = 0;
 
 	while (true)
 	{
@@ -73,18 +84,30 @@ void tree::insert(const T& data)
 			if (help->right == nullptr)
 			{
 				help->right = new node(data);
+				help->right->setDepth(help_depth + 1);
+				number_of_nodes++;
+
+				this->depth = (help_depth+1) > this->depth ? (help_depth+1) : depth;
+
 				return;
 			}
 			help = help->right;
+			help_depth++;
 		}
 		else
 		{
 			if (help->left == nullptr)
 			{
 				help->left = new node(data);
+				help->left->setDepth(help_depth + 1);
+				number_of_nodes++;
+
+				this->depth = (help_depth + 1) > this->depth ? (help_depth + 1) : this->depth;
+
 				return;
 			}
 			help = help->left;
+			help_depth++;
 		}
 	}
 }
@@ -94,9 +117,53 @@ void tree::insert_recursively(const T& data)
 	if (empty())
 	{
 		root = new node(data);
+		number_of_nodes++;
 		return;
 	}
-	insert_into_subtree(data, root);
+	insert_into_subtree(data, root, 0);
+}
+
+
+void tree::insert_into_subtree(const T& data, node* node_, int depth_)
+{
+	if (node_->getData() == data)
+	{
+		return;
+	}
+
+	if (data > node_->getData())
+	{
+		if (node_->right == nullptr)
+		{
+			node_->right = new node(data);
+			node_->right->setDepth(depth_ + 1);
+
+			this->depth = (depth_ + 1) > this->depth ? (depth_ + 1) : this->depth;
+
+			number_of_nodes++;
+		}
+		else
+		{
+			insert_into_subtree(data, node_->right, depth_+1);
+		}
+	}
+	else
+	{
+		if (node_->left == nullptr)
+		{
+			node_->left = new node(data);
+			node_->left->setDepth(depth_ + 1);
+
+			this->depth = (depth_ + 1) > this->depth ? (depth_ + 1) : this->depth;
+
+			number_of_nodes++;
+		}
+		else
+		{
+			insert_into_subtree(data, node_->left, depth_ + 1);
+		}
+	}
+
 }
 
 tree::node* tree::find_recursively(const T& data, node* &parent)
@@ -162,37 +229,7 @@ tree::node* tree::find_in_subtree(const T& data, node* &parent, node* node_)
 	}
 }
 
-void tree::insert_into_subtree(const T& data, node* node_)
-{
-	if (node_->getData() == data)
-	{
-		return;
-	}
 
-	if (data > node_->getData())
-	{
-		if (node_->right == nullptr)
-		{
-			node_->right = new node(data);
-		}
-		else
-		{
-			insert_into_subtree(data, node_->right);
-		}
-	}
-	else
-	{
-		if (node_->left == nullptr)
-		{
-			node_->left = new node(data);
-		}
-		else
-		{
-			insert_into_subtree(data, node_->left);
-		}
-	}
-
-}
 
 
 
@@ -214,6 +251,8 @@ void tree::write_find(const T& data)
 
 	std::cout << parent->getData() << " " << help->getData() << std::endl;
 }
+
+
 
 void tree::remove_node(const T& data)
 {
@@ -257,6 +296,7 @@ void tree::remove_leaf(node* deleted, node* parent)
 		root = nullptr;
 	}
 	delete deleted;
+	number_of_nodes--;
 }
 
 void tree::remove_one_child(node* deleted, node* parent)
@@ -277,6 +317,7 @@ void tree::remove_one_child(node* deleted, node* parent)
 		root = deleted->left ? deleted->left : deleted->right;
 	}
 	delete deleted;
+	number_of_nodes--;
 }
 
 void tree::remove_two_children(node* deleted, node* parent)
@@ -312,9 +353,62 @@ void tree::write_(node* node_, int n) const
 }
 
 
+void tree::nice_write() const
+{
+	std::queue<node*> q;
+}
 
 
+void tree::TREEPRINT()
+{
+	int i = 0;
+	while (i <= this->depth) {
+		printlv(i);
+		i++;
+		std::cout << std::endl;
+	}
+}
 
+void tree::printlv(int n)
+{
+	node* temp = root;
+
+
+	int val = pow(2, this->depth - n + 2);
+	std::cout << std::setw(val) << "";
+	dispLV(temp, n, val);
+	
+}
+
+void tree::dispLV(node* p, int lv, int d)
+{
+	int disp = 2*d;
+	if (lv == 0) {
+		if (p == nullptr) {
+
+			std::cout << "x";
+			std::cout << std::setw(disp-1) << "";
+			return;
+		}
+		else {
+			int result = ((p->data <= 1) ? 1 : log10(p->data) + 1);
+			std::cout << "" << p->data << "";
+			//std::cout << std::setw(disp - result - 2) << "";
+			std::cout << std::setw(disp - result) << "";
+		}
+	}
+	else
+	{
+		if (p == nullptr && lv >= 1) {
+			dispLV(nullptr, lv - 1, d);
+			dispLV(nullptr, lv - 1, d);
+		}
+		else {
+			dispLV(p->left, lv - 1, d);
+			dispLV(p->right, lv - 1, d);
+		}
+	}
+}
 
 
 
