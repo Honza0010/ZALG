@@ -230,24 +230,6 @@ tree::node* tree::find_in_subtree(const T& data, node* &parent, node* node_)
 }
 
 
-
-
-
-
-
-void tree::write()
-{
-	if (empty())
-	{
-		return;
-	}
-	write_(root, 0);
-}
-
-
-
-
-
 void tree::remove_node(const T& data)
 {
 	node* parent = nullptr;
@@ -347,28 +329,6 @@ int tree::getDepth(node* node_)
 	return 0;
 
 }
-
-
-void tree::write_(node* node_, int n) 
-{
-	/*if (node_ == nullptr)
-	{
-		return;
-	}
-	write_(node_->left, n+1);
-
-	for (int i = 0; i < n; i++)
-	{
-		std::cout << " ";
-	}
-	std::cout << node_->data << std::endl;
-	write_(node_->right, n+1);*/
-
-	std::cout << getDepth(root)-1 << std::endl;
-}
-
-
-
 
 
 void tree::TREEPRINT()
@@ -484,3 +444,29 @@ void tree::treeprint2()
 	}
 }
 
+
+void tree::write()
+{
+	if (empty())
+	{
+		return;
+	}
+	write_(root, 0);
+}
+
+
+void tree::write_(node* node_, int n)
+{
+	if (node_ == nullptr)
+	{
+		return;
+	}
+	write_(node_->left, n + 1);
+
+	for (int i = 0; i < n; i++)
+	{
+		std::cout << " ";
+	}
+	std::cout << node_->data << std::endl;
+	write_(node_->right, n + 1);
+}
