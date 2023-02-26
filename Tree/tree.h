@@ -28,10 +28,10 @@ public:
 
 	void write() const;
 	void write_find(const T& data);
-	void nice_write() const;
 
 
 	void TREEPRINT();
+	void treeprint2();
 	
 
 private:

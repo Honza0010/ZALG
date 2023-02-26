@@ -353,10 +353,7 @@ void tree::write_(node* node_, int n) const
 }
 
 
-void tree::nice_write() const
-{
-	std::queue<node*> q;
-}
+
 
 
 void tree::TREEPRINT()
@@ -368,6 +365,8 @@ void tree::TREEPRINT()
 		std::cout << std::endl;
 	}
 }
+
+
 
 void tree::printlv(int n)
 {
@@ -392,7 +391,7 @@ void tree::dispLV(node* p, int lv, int d)
 		}
 		else {
 			int result = ((p->data <= 1) ? 1 : log10(p->data) + 1);
-			std::cout << "" << p->data << "";
+			std::cout << p->data;
 			//std::cout << std::setw(disp - result - 2) << "";
 			std::cout << std::setw(disp - result) << "";
 		}
@@ -411,4 +410,62 @@ void tree::dispLV(node* p, int lv, int d)
 }
 
 
+void tree::treeprint2()
+{
+	struct node_help
+	{
+		node* p;
+		bool is_separator;		//Bude kontrolovat, zda vložený nullptr je "chybìjící" prvek a nebo separátor oddìlující úrovnì
+	};
+
+	std::queue<node_help> q;
+
+	q.push(node_help{root, false});
+	q.push(node_help{nullptr, true});
+	int help_depth = 0;
+
+	int val = pow(2, this->depth - root->depth + 2);		//Odsazení od kraje
+	std::cout << std::setw(val) << "";
+	while (!q.empty())
+	{
+		node_help help = q.front();
+		q.pop();
+		if (help.p != nullptr)
+		{
+			q.push(node_help{ help.p->left, false });
+			q.push(node_help{ help.p->right, false });
+
+			int result = ((help.p->data <= 1) ? 1 : log10(help.p->data) + 1);		//Kontroluje, kolika ciferné je èíslo
+			std::cout << help.p->data;
+			val = pow(2, this->depth - help.p->depth + 2);
+			std::cout << std::setw(2*val - result) << "";
+
+		}
+		else if(help.is_separator == true)
+		{
+			help_depth++;		//Pøi pøechodu na novou úroveò zvìtšíme pomocný level
+			if (q.empty())
+			{
+				break;
+			}
+			std::cout << std::endl;
+
+			val = pow(2, this->depth - help_depth + 2);			//Odsazení od kraje
+			std::cout << std::setw(val) << "";
+			q.push(node_help{ nullptr, true });
+			if (help_depth >= this->depth)		//Jestliže jsme už pøekroèili nejnižší patro, tak konèíme
+			{
+				break;
+			}
+		}
+		else
+		{
+			q.push(node_help{ nullptr, false });
+			q.push(node_help{ nullptr, false });
+			std::cout << "x";
+			val = pow(2, this->depth - help_depth + 2);
+			std::cout << std::setw(2*val - 1) << "";		// -1 protože x je jednomistne
+		}
+	}
+}
 
