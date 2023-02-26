@@ -235,7 +235,7 @@ tree::node* tree::find_in_subtree(const T& data, node* &parent, node* node_)
 
 
 
-void tree::write() const
+void tree::write()
 {
 	if (empty())
 	{
@@ -244,13 +244,7 @@ void tree::write() const
 	write_(root, 0);
 }
 
-void tree::write_find(const T& data)
-{
-	node* parent = nullptr;
-	node* help = find_recursively(data, parent);
 
-	std::cout << parent->getData() << " " << help->getData() << std::endl;
-}
 
 
 
@@ -297,6 +291,8 @@ void tree::remove_leaf(node* deleted, node* parent)
 	}
 	delete deleted;
 	number_of_nodes--;
+
+	this->depth = getDepth(root)-1;
 }
 
 void tree::remove_one_child(node* deleted, node* parent)
@@ -318,6 +314,8 @@ void tree::remove_one_child(node* deleted, node* parent)
 	}
 	delete deleted;
 	number_of_nodes--;
+
+	this->depth = getDepth(root)-1;
 }
 
 void tree::remove_two_children(node* deleted, node* parent)
@@ -336,9 +334,24 @@ void tree::remove_two_children(node* deleted, node* parent)
 	help->left ? remove_one_child(help, parent) : remove_leaf(help, parent);
 }
 
-void tree::write_(node* node_, int n) const
+
+int tree::getDepth(node* node_)
 {
-	if (node_ == nullptr)
+	if (node_ != nullptr)
+	{
+		int l = 0, p = 0;
+		l = getDepth(node_->left);
+		p = getDepth(node_->right);
+		return l > p ? (l + 1) : (p + 1);
+	}
+	return 0;
+
+}
+
+
+void tree::write_(node* node_, int n) 
+{
+	/*if (node_ == nullptr)
 	{
 		return;
 	}
@@ -349,7 +362,9 @@ void tree::write_(node* node_, int n) const
 		std::cout << " ";
 	}
 	std::cout << node_->data << std::endl;
-	write_(node_->right, n+1);
+	write_(node_->right, n+1);*/
+
+	std::cout << getDepth(root)-1 << std::endl;
 }
 
 
@@ -453,7 +468,7 @@ void tree::treeprint2()
 			val = pow(2, this->depth - help_depth + 2);			//Odsazení od kraje
 			std::cout << std::setw(val) << "";
 			q.push(node_help{ nullptr, true });
-			if (help_depth >= this->depth)		//Jestliže jsme už pøekroèili nejnižší patro, tak konèíme
+			if (help_depth > this->depth)		//Jestliže jsme už pøekroèili nejnižší patro, tak konèíme
 			{
 				break;
 			}

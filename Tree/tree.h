@@ -26,7 +26,7 @@ public:
 
 	void remove_node(const T& data);
 
-	void write() const;
+	void write();
 	void write_find(const T& data);
 
 
@@ -41,7 +41,7 @@ private:
 	int depth;
 
 	void remove_all(node* node_);
-	void write_(node* node_, int n) const;
+	
 	void insert_into_subtree(const T& data, node* node_, int depth_);
 	node* find_in_subtree(const T& data, node* &parent, node* node_);
 
@@ -49,6 +49,9 @@ private:
 	void remove_one_child(node* deleted, node* parent);
 	void remove_two_children(node* deleted, node* parent);
 
+	int getDepth(node* node_);
+	
+	void write_(node* node_, int n);
 
 	void printlv(int n);
 	void dispLV(node* p, int lv, int d);
