@@ -14,3 +14,4 @@ Cvičení ze ZALG
 #### 3) AVL tree
 #### 4) Red-Black tree (RB tree)
 
+### Grafové algoritmy
