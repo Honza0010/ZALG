@@ -4,7 +4,7 @@ Cvičení ze ZALG
 
 # Zápočtová témata 
 
-## Lineární datové struktury
+#### Lineární datové struktury
 
 std::hive (plf::colony) + std::deque
 skip-list + self-organizing list
