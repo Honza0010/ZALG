@@ -1,6 +1,5 @@
 # ZALG
 Cvičení ze ZALG
-
 ==============
 
 Zápočtová témata 
