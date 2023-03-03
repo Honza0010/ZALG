@@ -11,7 +11,7 @@ Cvičení ze ZALG
 
 ### Nelineární datové struktury
 
-#### 3) AVL tree
+#### 3) AVL tree  - ZAMLUVENO 
 #### 4) Red-Black tree (RB tree)
 
 ### Grafové algoritmy
