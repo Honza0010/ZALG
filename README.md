@@ -2,7 +2,7 @@
 Cvičení ze ZALG
 
 # Podmínky udělení zápočtu
-Vytvoříte si repozitář na gitlab/guthub/... a nahrajete tam svůj program. V repozitáři se bude vyskytovat readme.md soubor, který popíše Vámi naprogramovaný zápočtový problém. Dále bude obsahovat nějaký dokument (obvykle pdf) s podrobným seznámením vašeho úkolu. 
+Vytvoříte si repozitář na gitlab/guthub/... a nahrajete tam svůj program. V repozitáři se bude vyskytovat readme.md soubor, který popíše Vámi naprogramovaný zápočtový problém. Dále bude obsahovat nějaký dokument (obvykle pdf) s podrobným popisem vašeho úkolu. 
 
 
 # Zápočtová témata 
