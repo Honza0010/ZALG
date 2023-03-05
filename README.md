@@ -16,4 +16,7 @@ Cvičení ze ZALG
 
 ### Nelineární datové struktury - stromy
 
+#### 5) 2-3-4 tree + popis B-stromu
+#### 6) Trie + Suffix-tree (compressed Trie) a jejich využití jako Hešová tabulka, Slovník a pro lexikografické třídění
+
 ### Grafové algoritmy
