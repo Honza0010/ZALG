@@ -15,7 +15,7 @@ Vytvoříte si repozitář na gitlab/github/... a nahrajete tam svůj program. V
 ### Nelineární datové struktury - vyvážené binární vyhledávací stromy
 
 #### 3) AVL tree  - ZAMLUVENO 
-#### 4) Red-Black tree (RB tree)
+#### 4) Red-Black tree (RB tree) - ZAMLUVENO
 
 ### Nelineární datové struktury - stromy
 
