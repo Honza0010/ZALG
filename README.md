@@ -21,5 +21,6 @@ Vytvoříte si repozitář na gitlab/github/... a nahrajete tam svůj program. V
 
 #### 5) 2-3-4 tree + popis B-stromu
 #### 6) Trie + Suffix-tree (compressed Trie) a jejich využití jako Hešová tabulka, Slovník a pro lexikografické třídění
+#### 7) Fibonacciho halda
 
 ### Grafové algoritmy
