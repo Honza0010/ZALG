@@ -24,3 +24,8 @@ Vytvoříte si repozitář na gitlab/github/... a nahrajete tam svůj program. V
 #### 7) Fibonacciho halda - ZAMLUVENO
 
 ### Grafové algoritmy
+
+#### 8) Minimální kostra grafu - alespoň 2 algoritmy a zkontrolovat souvislost grafu
+#### 9) Nejkratší cesta v grafu - A* algoritmus a jiné, které jsme nedělali na cvičeních
+#### 10) Obarvování grafu
+#### 11) Maximální tok v síti
