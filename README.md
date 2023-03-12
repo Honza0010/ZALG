@@ -10,7 +10,7 @@ Vytvoříte si repozitář na gitlab/github/... a nahrajete tam svůj program. V
 ### Lineární datové struktury
 
 #### 1) std::hive (plf::colony) + std::deque
-#### 2) skip-list + self-organizing list
+#### 2) skip-list + self-organizing list - ZAMLUVENO
 
 ### Nelineární datové struktury - vyvážené binární vyhledávací stromy
 
@@ -21,6 +21,6 @@ Vytvoříte si repozitář na gitlab/github/... a nahrajete tam svůj program. V
 
 #### 5) 2-3-4 tree + popis B-stromu
 #### 6) Trie + Suffix-tree (compressed Trie) a jejich využití jako Hešová tabulka, Slovník a pro lexikografické třídění
-#### 7) Fibonacciho halda
+#### 7) Fibonacciho halda - ZAMLUVENO
 
 ### Grafové algoritmy
