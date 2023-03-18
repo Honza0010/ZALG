@@ -126,43 +126,6 @@ void graph::print()
 }
 
 
-//void read_graph(const std::string& name, graph& src)
-//{
-//	std::ifstream file;
-//	file.open(name);
-//
-//	if (file.is_open())
-//	{
-//		file >> src.n;
-//		src.allocate_vector();
-//		int i = 0, j = 0;
-//		while (!file.eof())
-//		{
-//			double d;
-//			file >> d;
-//			src.adj_matrix[i][j] = d;
-//			if (d < 0)
-//			{
-//				src.positive_weights = false;
-//			}
-//			j++;
-//			if (j >= src.n)
-//			{
-//				i++;
-//				if (i >= src.n)
-//				{
-//					break;
-//				}
-//				j = 0;
-//			}
-//
-//		}
-//	}
-//	else
-//	{
-//		throw GrafException("File with adjacency matrix could not be open");
-//	}
-//}
 
 graph read_graph_(const std::string& name)
 {

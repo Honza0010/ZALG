@@ -27,12 +27,11 @@ private:
 
 	bool positive_weights;	//Checks, whether all the weights are positive
 
-	//friend void read_graph(const std::string& name, graph& src);
 
 	friend graph read_graph_(const std::string& name);
 };
 
 
-//void read_graph(const std::string& name, graph& src);
+
 
 graph read_graph_(const std::string& name);
