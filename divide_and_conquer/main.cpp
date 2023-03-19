@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <queue>
 #include <utility>
+#include "hanoi.h"
 
 using namespace std;
 
@@ -134,5 +135,9 @@ int main()
     build_perfect_tree_iteratively(t, arr);
    
     t.TREEPRINT();
+
+
+    hanoi h(3);
+    h.solve();
 
 }
