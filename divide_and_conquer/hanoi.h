@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <iostream>
 
 class hanoi
 {
@@ -14,6 +15,7 @@ private:
 	void move_discs(int n, int source, int temp, int final_destination);
 
 	void print_discs();
+	
 
 public:
 	hanoi(unsigned int number_of_discs);

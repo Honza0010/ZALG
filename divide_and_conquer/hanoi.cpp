@@ -1,22 +1,17 @@
 #include "hanoi.h"
-#include <iostream>
+
 
 
 hanoi::hanoi(unsigned int number_of_discs)
-	: number_of_discs(number_of_discs)
+	:number_of_discs(number_of_discs)
 {
 	tower.resize(3);
-	for (int i = 0; i < 3; i++)
-	{
-		tower[i].clear();
-	}
 
-	for (unsigned int i = number_of_discs; i > 0; i--)
+	for (int i = number_of_discs; i > 0; i--)
 	{
 		tower[0].push_back(i);
 	}
 }
-
 
 
 
@@ -48,21 +43,21 @@ void hanoi::print_discs()
 	{
 		std::cout << tower[0][i] << " ";
 	}
-	std::cout << std::endl;
+	std::cout << "\n";
 
 	std::cout << "B: ";
 	for (int i = 0; i < tower[1].size(); i++)
 	{
 		std::cout << tower[1][i] << " ";
 	}
-	std::cout << std::endl;
+	std::cout << "\n";
 
 	std::cout << "C: ";
 	for (int i = 0; i < tower[2].size(); i++)
 	{
 		std::cout << tower[2][i] << " ";
 	}
-	std::cout << std::endl;
+	std::cout << "\n";
 }
 
 
