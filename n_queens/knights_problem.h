@@ -43,7 +43,7 @@ class knights_problem
 					return true;
 				}
 
-				chessboard[position.first][position.second] = -1;
+				chessboard[position.first][position.second] = -1;	//If we want all solutions, we need to go back and find with another move another way
 				ancestors[position.first][position.second] = { -1,-1 };
 			}
 
