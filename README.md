@@ -9,7 +9,7 @@ Vytvoříte si repozitář na gitlab/github/... a nahrajete tam svůj program. V
 
 ### Lineární datové struktury
 
-#### 1) std::hive (plf::colony) + std::deque
+#### 1) std::hive (plf::colony) 
 #### 2) skip-list + self-organizing list - ZAMLUVENO
 
 ### Nelineární datové struktury - vyvážené binární vyhledávací stromy
