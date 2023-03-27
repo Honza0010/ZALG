@@ -25,7 +25,7 @@ Vytvoříte si repozitář na gitlab/github/... a nahrajete tam svůj program. V
 
 ### Grafové algoritmy
 
-#### 8) Minimální kostra grafu - alespoň 2 algoritmy a zkontrolovat souvislost grafu
+#### 8) Minimální kostra grafu - alespoň 2 algoritmy včetně kontroly souvislosti grafu
 #### 9) Nejkratší cesta v grafu - A* algoritmus - ZAMLUVENO
 #### 10) Obarvování grafu
-#### 11) Maximální tok v síti
+#### 11) Maximální tok v síti - Ford-Fulkerson (hladový) algoritmus včetně kontroly souvislosti
