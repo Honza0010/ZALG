@@ -108,7 +108,7 @@ public:
 
 
 
-	void warnsdorf_solve()
+	void warnsdorff_solve()
 	{
 		std::stack<std::pair<std::pair<int,int>, std::vector<std::pair<int, std::pair<int, int>>>>> positions; // stack of positions and its legal moves (stored in ordered vector) with degrees
 		positions.emplace(start, legal_moves(start));	//First we insert start position and vector (priority queue) with its legal moves
