@@ -111,7 +111,7 @@ void quick_sort(int* data, int n)
 void shell_sort(int* data, int n)
 {
 	// Start with a big gap, then reduce the gap until it becomes 1
-	for (int gap = (std::pow(2.0, log2(n)+1))/2; gap > 0; gap /= 2) 
+	for (int gap = pow(2, (int)log2(200)) - 1; gap > 0; gap /= 2) 
 	{
 		// Do a gapped insertion sort for this gap size.
 		// The first gap elements a[0..gap-1] are already in gapped order
