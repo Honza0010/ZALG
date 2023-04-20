@@ -49,7 +49,7 @@ void heap_sort(int* data, int n)
 	{
 		swap(data[left], data[right]);		//We give the biggest element into the end of the array and again create heap in the same array from root to index n-2
 		right--;							//We have to decrease its right border;
-		insert_into_heap(data, 0, right-1);	//Again we create heap, because the sequence data[1] ... data[n-2] is a heap
+		insert_into_heap(data, 0, right);	//Again we create heap, because the sequence data[1] ... data[n-2] is a heap
 	}
 }
 
