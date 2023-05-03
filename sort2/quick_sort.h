@@ -12,3 +12,5 @@ void quick_sort(int* data, int n);
 void shell_sort(int* data, int n);
 
 void radix_sort(int* data, int n);
+
+void bucket_sort(int* data, int n, int K)

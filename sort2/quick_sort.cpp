@@ -206,3 +206,25 @@ void radix_sort(int* data, int n)
 
 	}
 }
+
+
+void bucket_sort(int* data, int n, int K)
+{
+    std::vector<std::vector<int>> bucket(std::vector<std::vector<int>>(K, std::vector<int>()));
+
+    for (int i = 0; i < n; i++)
+    {
+        bucket[data[i]].push_back(data[i]);
+    }
+
+    int i = 0;
+    for (int j = 0; j < K; j++)
+    {
+        while (!bucket[j].empty())
+        {
+            data[i] = bucket[j].back();
+            bucket[j].pop_back();
+            i++;
+        }
+    }
+}
