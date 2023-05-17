@@ -191,11 +191,11 @@ public:
                 {
                     if (danger_of_overflow && i == -1 && p == 1)
                     {
-                        // Preteceni!!!
+                        // Overflow!!!
                     }
  
                     int b = digits[i] - bigInt.digits[i] - p;
-                    digits[i] = b % 10 >= 0 ? b % 10 : (10 + b); // least significant digit of b
+                    digits[i] = b >= 0 ? b % 10 : (10 + b); // least significant digit of b
                     p = b < 0 ? 1 : 0;         // update carry value
                 }
 
@@ -208,18 +208,22 @@ public:
                 {
                     if (danger_of_overflow && i == -1 && p == 1)
                     {
-                        // Preteceni!!!
+                        // Overflow!!!
                     }
 
                     int b = bigInt.digits[i] - digits[i] - p;
-                    digits[i] = b % 10 >= 0 ? b % 10 : (10+b); // least significant digit of b
+                    digits[i] = b >= 0 ? b % 10 : (10+b); // least significant digit of b
                     p = b < 0 ? 1 : 0;         // update carry value
                 }
 
-                this->sign = bigInt.sign == NEGATIVE ? POSITIVE : NEGATIVE;
+                this->sign = !bigInt.sign;
             }
 
-            this->size = digits[N - size] == 0 ? size - 1 : size;
+            //this->size = digits[N - size] == 0 ? size - 1 : size;
+            while (digits[N - size] == 0)
+            {
+                size--;
+            }
            
         }
     }
@@ -290,8 +294,8 @@ int main() {
     BigInt num2("65649798466");*/
 
 
-    BigInt num("10");
-    BigInt num2("1200");
+    BigInt num("999");
+    BigInt num2("1000");
 
    /* BigDec num3("656497,98466");
     BigDec num4("656497,98466");
