@@ -219,7 +219,7 @@ public:
                 this->sign = bigInt.sign == NEGATIVE ? POSITIVE : NEGATIVE;
             }
 
-            this->size = digits[N - 1 - size] == 0 ? size - 1 : size;
+            this->size = digits[N - size] == 0 ? size - 1 : size;
            
         }
     }
@@ -286,12 +286,12 @@ public:
 };
 
 int main() {
-    BigInt num("123456789");
-    BigInt num2("65649798466");
+ /*   BigInt num("123456789");
+    BigInt num2("65649798466");*/
 
 
-    //BigInt num("10");
-    //BigInt num2("12");
+    BigInt num("10");
+    BigInt num2("1200");
 
    /* BigDec num3("656497,98466");
     BigDec num4("656497,98466");
